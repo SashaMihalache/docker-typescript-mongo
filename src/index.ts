@@ -8,7 +8,7 @@ import { connect } from "./db";
 import { register } from "./register";
 import { Member } from "./models/member";
 
- connect().then(() => {
+connect().then(() => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -22,7 +22,8 @@ import { Member } from "./models/member";
   });
 
   app.post("/register", register);
-  
-  console.log("===APPLICATION RUNNING===")
-  app.listen(80);
+
+  app.listen(80, () => {
+    console.log("===APPLICATION RUNNING===");
+  });
 });
